@@ -1,0 +1,2602 @@
+[
+  {
+    "model": "libapp.marc_field",
+    "pk": 1,
+    "fields": {
+      "marc_001_control_number": "CTRL-1001",
+      "marc_245_title_and_statement_of_responsibility": "It Returns / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Random House, 2003.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 8.",
+      "marc_501_note": "Book 1 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 2,
+    "fields": {
+      "marc_001_control_number": "CTRL-1002",
+      "marc_245_title_and_statement_of_responsibility": "It Returns / Veronica Roth.",
+      "marc_100_main_entry_personal_name": "Veronica Roth",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Bloomsbury, 2003.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 4.",
+      "marc_501_note": "Book 2 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 3,
+    "fields": {
+      "marc_001_control_number": "CTRL-1003",
+      "marc_245_title_and_statement_of_responsibility": "The Goblet's Secret / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Penguin Books, 2003.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 7.",
+      "marc_501_note": "Book 3 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 4,
+    "fields": {
+      "marc_001_control_number": "CTRL-1004",
+      "marc_245_title_and_statement_of_responsibility": "The Philosopher's Quest / Veronica Roth.",
+      "marc_100_main_entry_personal_name": "Veronica Roth",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: HarperCollins, 2008.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 4.",
+      "marc_501_note": "Book 4 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 5,
+    "fields": {
+      "marc_001_control_number": "CTRL-1005",
+      "marc_245_title_and_statement_of_responsibility": "The Lightning Rebellion / J.K. Rowling.",
+      "marc_100_main_entry_personal_name": "J.K. Rowling",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Penguin Books, 2001.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 9.",
+      "marc_501_note": "Book 5 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 6,
+    "fields": {
+      "marc_001_control_number": "CTRL-1006",
+      "marc_245_title_and_statement_of_responsibility": "The Hunger Conflict / Rick Riordan.",
+      "marc_100_main_entry_personal_name": "Rick Riordan",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Random House, 2005.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 3.",
+      "marc_501_note": "Book 6 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 7,
+    "fields": {
+      "marc_001_control_number": "CTRL-1007",
+      "marc_245_title_and_statement_of_responsibility": "It Returns / Rick Riordan.",
+      "marc_100_main_entry_personal_name": "Rick Riordan",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Bloomsbury, 2009.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 9.",
+      "marc_501_note": "Book 7 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 8,
+    "fields": {
+      "marc_001_control_number": "CTRL-1008",
+      "marc_245_title_and_statement_of_responsibility": "The Philosopher's Quest / Rick Riordan.",
+      "marc_100_main_entry_personal_name": "Rick Riordan",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Bloomsbury, 2001.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 5.",
+      "marc_501_note": "Book 8 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 9,
+    "fields": {
+      "marc_001_control_number": "CTRL-1009",
+      "marc_245_title_and_statement_of_responsibility": "The Goblet's Secret / Suzanne Collins.",
+      "marc_100_main_entry_personal_name": "Suzanne Collins",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: HarperCollins, 2009.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 9.",
+      "marc_501_note": "Book 9 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 10,
+    "fields": {
+      "marc_001_control_number": "CTRL-1010",
+      "marc_245_title_and_statement_of_responsibility": "The Maze of Shadows / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Bloomsbury, 2009.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 6.",
+      "marc_501_note": "Book 10 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 11,
+    "fields": {
+      "marc_001_control_number": "CTRL-1011",
+      "marc_245_title_and_statement_of_responsibility": "The Philosopher's Quest / Veronica Roth.",
+      "marc_100_main_entry_personal_name": "Veronica Roth",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: HarperCollins, 2001.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 1.",
+      "marc_501_note": "Book 11 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 12,
+    "fields": {
+      "marc_001_control_number": "CTRL-1012",
+      "marc_245_title_and_statement_of_responsibility": "The Goblet's Secret / Rick Riordan.",
+      "marc_100_main_entry_personal_name": "Rick Riordan",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Penguin Books, 2000.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 7.",
+      "marc_501_note": "Book 12 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 13,
+    "fields": {
+      "marc_001_control_number": "CTRL-1013",
+      "marc_245_title_and_statement_of_responsibility": "The Stand Rewritten / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Bloomsbury, 2005.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 4.",
+      "marc_501_note": "Book 13 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 14,
+    "fields": {
+      "marc_001_control_number": "CTRL-1014",
+      "marc_245_title_and_statement_of_responsibility": "It Returns / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Penguin Books, 2000.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 2.",
+      "marc_501_note": "Book 14 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 15,
+    "fields": {
+      "marc_001_control_number": "CTRL-1015",
+      "marc_245_title_and_statement_of_responsibility": "The Lightning Rebellion / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Scholastic Inc., 2006.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 8.",
+      "marc_501_note": "Book 15 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 16,
+    "fields": {
+      "marc_001_control_number": "CTRL-1016",
+      "marc_245_title_and_statement_of_responsibility": "The Hunger Conflict / Suzanne Collins.",
+      "marc_100_main_entry_personal_name": "Suzanne Collins",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Scholastic Inc., 2007.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 3.",
+      "marc_501_note": "Book 16 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 17,
+    "fields": {
+      "marc_001_control_number": "CTRL-1017",
+      "marc_245_title_and_statement_of_responsibility": "The Lightning Rebellion / Veronica Roth.",
+      "marc_100_main_entry_personal_name": "Veronica Roth",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Penguin Books, 2005.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 10.",
+      "marc_501_note": "Book 17 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 18,
+    "fields": {
+      "marc_001_control_number": "CTRL-1018",
+      "marc_245_title_and_statement_of_responsibility": "It Returns / Suzanne Collins.",
+      "marc_100_main_entry_personal_name": "Suzanne Collins",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Scholastic Inc., 2008.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 3.",
+      "marc_501_note": "Book 18 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 19,
+    "fields": {
+      "marc_001_control_number": "CTRL-1019",
+      "marc_245_title_and_statement_of_responsibility": "The Hunger Conflict / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Bloomsbury, 2006.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 5.",
+      "marc_501_note": "Book 19 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 20,
+    "fields": {
+      "marc_001_control_number": "CTRL-1020",
+      "marc_245_title_and_statement_of_responsibility": "Castle High / Veronica Roth.",
+      "marc_100_main_entry_personal_name": "Veronica Roth",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Bloomsbury, 2001.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 1.",
+      "marc_501_note": "Book 20 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 21,
+    "fields": {
+      "marc_001_control_number": "CTRL-1021",
+      "marc_245_title_and_statement_of_responsibility": "The Fire Catcher / J.K. Rowling.",
+      "marc_100_main_entry_personal_name": "J.K. Rowling",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Scholastic Inc., 2008.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 7.",
+      "marc_501_note": "Book 21 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 22,
+    "fields": {
+      "marc_001_control_number": "CTRL-1022",
+      "marc_245_title_and_statement_of_responsibility": "The Hunger Conflict / Rick Riordan.",
+      "marc_100_main_entry_personal_name": "Rick Riordan",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: HarperCollins, 2008.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 4.",
+      "marc_501_note": "Book 22 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 23,
+    "fields": {
+      "marc_001_control_number": "CTRL-1023",
+      "marc_245_title_and_statement_of_responsibility": "The Philosopher's Quest / J.K. Rowling.",
+      "marc_100_main_entry_personal_name": "J.K. Rowling",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Scholastic Inc., 2008.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 2.",
+      "marc_501_note": "Book 23 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 24,
+    "fields": {
+      "marc_001_control_number": "CTRL-1024",
+      "marc_245_title_and_statement_of_responsibility": "The Stand Rewritten / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Bloomsbury, 2001.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 10.",
+      "marc_501_note": "Book 24 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 25,
+    "fields": {
+      "marc_001_control_number": "CTRL-1025",
+      "marc_245_title_and_statement_of_responsibility": "It Returns / Veronica Roth.",
+      "marc_100_main_entry_personal_name": "Veronica Roth",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Penguin Books, 2000.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 10.",
+      "marc_501_note": "Book 25 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 26,
+    "fields": {
+      "marc_001_control_number": "CTRL-1026",
+      "marc_245_title_and_statement_of_responsibility": "The Fire Catcher / J.K. Rowling.",
+      "marc_100_main_entry_personal_name": "J.K. Rowling",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Penguin Books, 2003.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 8.",
+      "marc_501_note": "Book 26 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 27,
+    "fields": {
+      "marc_001_control_number": "CTRL-1027",
+      "marc_245_title_and_statement_of_responsibility": "It Returns / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Bloomsbury, 2004.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 8.",
+      "marc_501_note": "Book 27 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 28,
+    "fields": {
+      "marc_001_control_number": "CTRL-1028",
+      "marc_245_title_and_statement_of_responsibility": "The Philosopher's Quest / J.K. Rowling.",
+      "marc_100_main_entry_personal_name": "J.K. Rowling",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Random House, 2008.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 1.",
+      "marc_501_note": "Book 28 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 29,
+    "fields": {
+      "marc_001_control_number": "CTRL-1029",
+      "marc_245_title_and_statement_of_responsibility": "The Maze of Shadows / Veronica Roth.",
+      "marc_100_main_entry_personal_name": "Veronica Roth",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Random House, 2006.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 1.",
+      "marc_501_note": "Book 29 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 30,
+    "fields": {
+      "marc_001_control_number": "CTRL-1030",
+      "marc_245_title_and_statement_of_responsibility": "The Philosopher's Quest / J.K. Rowling.",
+      "marc_100_main_entry_personal_name": "J.K. Rowling",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Scholastic Inc., 2006.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 1.",
+      "marc_501_note": "Book 30 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 31,
+    "fields": {
+      "marc_001_control_number": "CTRL-1031",
+      "marc_245_title_and_statement_of_responsibility": "It Returns / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Bloomsbury, 2004.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 2.",
+      "marc_501_note": "Book 31 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 32,
+    "fields": {
+      "marc_001_control_number": "CTRL-1032",
+      "marc_245_title_and_statement_of_responsibility": "The Lightning Rebellion / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: HarperCollins, 2007.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 6.",
+      "marc_501_note": "Book 32 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 33,
+    "fields": {
+      "marc_001_control_number": "CTRL-1033",
+      "marc_245_title_and_statement_of_responsibility": "The Hunger Conflict / Veronica Roth.",
+      "marc_100_main_entry_personal_name": "Veronica Roth",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Penguin Books, 2005.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 10.",
+      "marc_501_note": "Book 33 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 34,
+    "fields": {
+      "marc_001_control_number": "CTRL-1034",
+      "marc_245_title_and_statement_of_responsibility": "The Maze of Shadows / Suzanne Collins.",
+      "marc_100_main_entry_personal_name": "Suzanne Collins",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Random House, 2007.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 10.",
+      "marc_501_note": "Book 34 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 35,
+    "fields": {
+      "marc_001_control_number": "CTRL-1035",
+      "marc_245_title_and_statement_of_responsibility": "The Stand Rewritten / J.K. Rowling.",
+      "marc_100_main_entry_personal_name": "J.K. Rowling",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Penguin Books, 2009.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 9.",
+      "marc_501_note": "Book 35 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 36,
+    "fields": {
+      "marc_001_control_number": "CTRL-1036",
+      "marc_245_title_and_statement_of_responsibility": "The Maze of Shadows / Suzanne Collins.",
+      "marc_100_main_entry_personal_name": "Suzanne Collins",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Scholastic Inc., 2009.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 6.",
+      "marc_501_note": "Book 36 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 37,
+    "fields": {
+      "marc_001_control_number": "CTRL-1037",
+      "marc_245_title_and_statement_of_responsibility": "The Philosopher's Quest / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Random House, 2003.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 8.",
+      "marc_501_note": "Book 37 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 38,
+    "fields": {
+      "marc_001_control_number": "CTRL-1038",
+      "marc_245_title_and_statement_of_responsibility": "The Philosopher's Quest / Suzanne Collins.",
+      "marc_100_main_entry_personal_name": "Suzanne Collins",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Penguin Books, 2008.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 7.",
+      "marc_501_note": "Book 38 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 39,
+    "fields": {
+      "marc_001_control_number": "CTRL-1039",
+      "marc_245_title_and_statement_of_responsibility": "The Stand Rewritten / Rick Riordan.",
+      "marc_100_main_entry_personal_name": "Rick Riordan",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Random House, 2000.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 7.",
+      "marc_501_note": "Book 39 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 40,
+    "fields": {
+      "marc_001_control_number": "CTRL-1040",
+      "marc_245_title_and_statement_of_responsibility": "The Maze of Shadows / Suzanne Collins.",
+      "marc_100_main_entry_personal_name": "Suzanne Collins",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Random House, 2006.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 2.",
+      "marc_501_note": "Book 40 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 41,
+    "fields": {
+      "marc_001_control_number": "CTRL-1041",
+      "marc_245_title_and_statement_of_responsibility": "The Fire Catcher / Suzanne Collins.",
+      "marc_100_main_entry_personal_name": "Suzanne Collins",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: HarperCollins, 2004.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 2.",
+      "marc_501_note": "Book 41 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 42,
+    "fields": {
+      "marc_001_control_number": "CTRL-1042",
+      "marc_245_title_and_statement_of_responsibility": "The Fire Catcher / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Random House, 2009.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 10.",
+      "marc_501_note": "Book 42 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 43,
+    "fields": {
+      "marc_001_control_number": "CTRL-1043",
+      "marc_245_title_and_statement_of_responsibility": "The Lightning Rebellion / Veronica Roth.",
+      "marc_100_main_entry_personal_name": "Veronica Roth",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Scholastic Inc., 2005.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 8.",
+      "marc_501_note": "Book 43 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 44,
+    "fields": {
+      "marc_001_control_number": "CTRL-1044",
+      "marc_245_title_and_statement_of_responsibility": "It Returns / Rick Riordan.",
+      "marc_100_main_entry_personal_name": "Rick Riordan",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Scholastic Inc., 2002.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 10.",
+      "marc_501_note": "Book 44 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 45,
+    "fields": {
+      "marc_001_control_number": "CTRL-1045",
+      "marc_245_title_and_statement_of_responsibility": "The Maze of Shadows / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Random House, 2001.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 1.",
+      "marc_501_note": "Book 45 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 46,
+    "fields": {
+      "marc_001_control_number": "CTRL-1046",
+      "marc_245_title_and_statement_of_responsibility": "The Fire Catcher / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Scholastic Inc., 2004.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 9.",
+      "marc_501_note": "Book 46 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 47,
+    "fields": {
+      "marc_001_control_number": "CTRL-1047",
+      "marc_245_title_and_statement_of_responsibility": "The Stand Rewritten / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: HarperCollins, 2006.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 5.",
+      "marc_501_note": "Book 47 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 48,
+    "fields": {
+      "marc_001_control_number": "CTRL-1048",
+      "marc_245_title_and_statement_of_responsibility": "The Hunger Conflict / Stephen King.",
+      "marc_100_main_entry_personal_name": "Stephen King",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Random House, 2009.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 1.",
+      "marc_501_note": "Book 48 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 49,
+    "fields": {
+      "marc_001_control_number": "CTRL-1049",
+      "marc_245_title_and_statement_of_responsibility": "The Goblet's Secret / J.K. Rowling.",
+      "marc_100_main_entry_personal_name": "J.K. Rowling",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Bloomsbury, 2005.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 3.",
+      "marc_501_note": "Book 49 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.marc_field",
+    "pk": 50,
+    "fields": {
+      "marc_001_control_number": "CTRL-1050",
+      "marc_245_title_and_statement_of_responsibility": "The Stand Rewritten / Rick Riordan.",
+      "marc_100_main_entry_personal_name": "Rick Riordan",
+      "marc_250_edition": "First edition.",
+      "marc_260_publication": "New York: Bloomsbury, 2007.",
+      "marc_300_physical_description": "652 pages; 21 cm.",
+      "marc_490_series_statement": "Series 9.",
+      "marc_501_note": "Book 50 in the generated series.",
+      "marc_024_standard_number": null,
+      "marc_037_source_of_acquisition": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 701,
+    "fields": {
+      "accession_number": "FIC 000001",
+      "marc_control_number": 10,
+      "author": "Stephen King",
+      "title": "The Maze of Shadows",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 702,
+    "fields": {
+      "accession_number": "FIC 000002",
+      "marc_control_number": 12,
+      "author": "Rick Riordan",
+      "title": "The Goblet's Secret",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 703,
+    "fields": {
+      "accession_number": "FIC 000003",
+      "marc_control_number": 35,
+      "author": "J.K. Rowling",
+      "title": "The Stand Rewritten",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 704,
+    "fields": {
+      "accession_number": "FIC 000004",
+      "marc_control_number": 38,
+      "author": "Suzanne Collins",
+      "title": "The Philosopher's Quest",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 705,
+    "fields": {
+      "accession_number": "FIC 000005",
+      "marc_control_number": 37,
+      "author": "Stephen King",
+      "title": "The Philosopher's Quest",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 706,
+    "fields": {
+      "accession_number": "FIC 000006",
+      "marc_control_number": 5,
+      "author": "J.K. Rowling",
+      "title": "The Lightning Rebellion",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 707,
+    "fields": {
+      "accession_number": "FIC 000007",
+      "marc_control_number": 12,
+      "author": "Rick Riordan",
+      "title": "The Goblet's Secret",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 708,
+    "fields": {
+      "accession_number": "FIC 000008",
+      "marc_control_number": 8,
+      "author": "Rick Riordan",
+      "title": "The Philosopher's Quest",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 709,
+    "fields": {
+      "accession_number": "FIC 000009",
+      "marc_control_number": 4,
+      "author": "Veronica Roth",
+      "title": "The Philosopher's Quest",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 710,
+    "fields": {
+      "accession_number": "FIC 000010",
+      "marc_control_number": 14,
+      "author": "Stephen King",
+      "title": "It Returns",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 711,
+    "fields": {
+      "accession_number": "FIC 000011",
+      "marc_control_number": 36,
+      "author": "Suzanne Collins",
+      "title": "The Maze of Shadows",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 712,
+    "fields": {
+      "accession_number": "FIC 000012",
+      "marc_control_number": 8,
+      "author": "Rick Riordan",
+      "title": "The Philosopher's Quest",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 713,
+    "fields": {
+      "accession_number": "FIC 000013",
+      "marc_control_number": 49,
+      "author": "J.K. Rowling",
+      "title": "The Goblet's Secret",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 714,
+    "fields": {
+      "accession_number": "FIC 000014",
+      "marc_control_number": 1,
+      "author": "Stephen King",
+      "title": "It Returns",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 715,
+    "fields": {
+      "accession_number": "FIC 000015",
+      "marc_control_number": 50,
+      "author": "Rick Riordan",
+      "title": "The Stand Rewritten",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 716,
+    "fields": {
+      "accession_number": "FIC 000016",
+      "marc_control_number": 46,
+      "author": "Stephen King",
+      "title": "The Fire Catcher",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 717,
+    "fields": {
+      "accession_number": "FIC 000017",
+      "marc_control_number": 36,
+      "author": "Suzanne Collins",
+      "title": "The Maze of Shadows",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 718,
+    "fields": {
+      "accession_number": "FIC 000018",
+      "marc_control_number": 32,
+      "author": "Stephen King",
+      "title": "The Lightning Rebellion",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 719,
+    "fields": {
+      "accession_number": "FIC 000019",
+      "marc_control_number": 23,
+      "author": "J.K. Rowling",
+      "title": "The Philosopher's Quest",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 720,
+    "fields": {
+      "accession_number": "FIC 000020",
+      "marc_control_number": 9,
+      "author": "Suzanne Collins",
+      "title": "The Goblet's Secret",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 721,
+    "fields": {
+      "accession_number": "FIC 000021",
+      "marc_control_number": 32,
+      "author": "Stephen King",
+      "title": "The Lightning Rebellion",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 722,
+    "fields": {
+      "accession_number": "FIC 000022",
+      "marc_control_number": 16,
+      "author": "Suzanne Collins",
+      "title": "The Hunger Conflict",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 723,
+    "fields": {
+      "accession_number": "FIC 000023",
+      "marc_control_number": 35,
+      "author": "J.K. Rowling",
+      "title": "The Stand Rewritten",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 724,
+    "fields": {
+      "accession_number": "FIC 000024",
+      "marc_control_number": 44,
+      "author": "Rick Riordan",
+      "title": "It Returns",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 725,
+    "fields": {
+      "accession_number": "FIC 000025",
+      "marc_control_number": 1,
+      "author": "Stephen King",
+      "title": "It Returns",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 726,
+    "fields": {
+      "accession_number": "FIC 000026",
+      "marc_control_number": 6,
+      "author": "Rick Riordan",
+      "title": "The Hunger Conflict",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 727,
+    "fields": {
+      "accession_number": "FIC 000027",
+      "marc_control_number": 25,
+      "author": "Veronica Roth",
+      "title": "It Returns",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 728,
+    "fields": {
+      "accession_number": "FIC 000028",
+      "marc_control_number": 12,
+      "author": "Rick Riordan",
+      "title": "The Goblet's Secret",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 729,
+    "fields": {
+      "accession_number": "FIC 000029",
+      "marc_control_number": 45,
+      "author": "Stephen King",
+      "title": "The Maze of Shadows",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 730,
+    "fields": {
+      "accession_number": "FIC 000030",
+      "marc_control_number": 24,
+      "author": "Stephen King",
+      "title": "The Stand Rewritten",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 731,
+    "fields": {
+      "accession_number": "FIC 000031",
+      "marc_control_number": 4,
+      "author": "Veronica Roth",
+      "title": "The Philosopher's Quest",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 732,
+    "fields": {
+      "accession_number": "FIC 000032",
+      "marc_control_number": 6,
+      "author": "Rick Riordan",
+      "title": "The Hunger Conflict",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 733,
+    "fields": {
+      "accession_number": "FIC 000033",
+      "marc_control_number": 25,
+      "author": "Veronica Roth",
+      "title": "It Returns",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 734,
+    "fields": {
+      "accession_number": "FIC 000034",
+      "marc_control_number": 50,
+      "author": "Rick Riordan",
+      "title": "The Stand Rewritten",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 735,
+    "fields": {
+      "accession_number": "FIC 000035",
+      "marc_control_number": 32,
+      "author": "Stephen King",
+      "title": "The Lightning Rebellion",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 736,
+    "fields": {
+      "accession_number": "FIC 000036",
+      "marc_control_number": 29,
+      "author": "Veronica Roth",
+      "title": "The Maze of Shadows",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 737,
+    "fields": {
+      "accession_number": "FIC 000037",
+      "marc_control_number": 28,
+      "author": "J.K. Rowling",
+      "title": "The Philosopher's Quest",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 738,
+    "fields": {
+      "accession_number": "FIC 000038",
+      "marc_control_number": 13,
+      "author": "Stephen King",
+      "title": "The Stand Rewritten",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 739,
+    "fields": {
+      "accession_number": "FIC 000039",
+      "marc_control_number": 30,
+      "author": "J.K. Rowling",
+      "title": "The Philosopher's Quest",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 740,
+    "fields": {
+      "accession_number": "FIC 000040",
+      "marc_control_number": 10,
+      "author": "Stephen King",
+      "title": "The Maze of Shadows",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 741,
+    "fields": {
+      "accession_number": "FIC 000041",
+      "marc_control_number": 19,
+      "author": "Stephen King",
+      "title": "The Hunger Conflict",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 742,
+    "fields": {
+      "accession_number": "FIC 000042",
+      "marc_control_number": 13,
+      "author": "Stephen King",
+      "title": "The Stand Rewritten",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 743,
+    "fields": {
+      "accession_number": "FIC 000043",
+      "marc_control_number": 24,
+      "author": "Stephen King",
+      "title": "The Stand Rewritten",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 744,
+    "fields": {
+      "accession_number": "FIC 000044",
+      "marc_control_number": 6,
+      "author": "Rick Riordan",
+      "title": "The Hunger Conflict",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 745,
+    "fields": {
+      "accession_number": "FIC 000045",
+      "marc_control_number": 13,
+      "author": "Stephen King",
+      "title": "The Stand Rewritten",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 746,
+    "fields": {
+      "accession_number": "FIC 000046",
+      "marc_control_number": 43,
+      "author": "Veronica Roth",
+      "title": "The Lightning Rebellion",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 747,
+    "fields": {
+      "accession_number": "FIC 000047",
+      "marc_control_number": 41,
+      "author": "Suzanne Collins",
+      "title": "The Fire Catcher",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 748,
+    "fields": {
+      "accession_number": "FIC 000048",
+      "marc_control_number": 2,
+      "author": "Veronica Roth",
+      "title": "It Returns",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 749,
+    "fields": {
+      "accession_number": "FIC 000049",
+      "marc_control_number": 17,
+      "author": "Veronica Roth",
+      "title": "The Lightning Rebellion",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 750,
+    "fields": {
+      "accession_number": "FIC 000050",
+      "marc_control_number": 10,
+      "author": "Stephen King",
+      "title": "The Maze of Shadows",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 751,
+    "fields": {
+      "accession_number": "FIC 000051",
+      "marc_control_number": 19,
+      "author": "Stephen King",
+      "title": "The Hunger Conflict",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 752,
+    "fields": {
+      "accession_number": "FIC 000052",
+      "marc_control_number": 10,
+      "author": "Stephen King",
+      "title": "The Maze of Shadows",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 753,
+    "fields": {
+      "accession_number": "FIC 000053",
+      "marc_control_number": 36,
+      "author": "Suzanne Collins",
+      "title": "The Maze of Shadows",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 754,
+    "fields": {
+      "accession_number": "FIC 000054",
+      "marc_control_number": 14,
+      "author": "Stephen King",
+      "title": "It Returns",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 755,
+    "fields": {
+      "accession_number": "FIC 000055",
+      "marc_control_number": 1,
+      "author": "Stephen King",
+      "title": "It Returns",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 756,
+    "fields": {
+      "accession_number": "FIC 000056",
+      "marc_control_number": 22,
+      "author": "Rick Riordan",
+      "title": "The Hunger Conflict",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 757,
+    "fields": {
+      "accession_number": "FIC 000057",
+      "marc_control_number": 16,
+      "author": "Suzanne Collins",
+      "title": "The Hunger Conflict",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 758,
+    "fields": {
+      "accession_number": "FIC 000058",
+      "marc_control_number": 37,
+      "author": "Stephen King",
+      "title": "The Philosopher's Quest",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 759,
+    "fields": {
+      "accession_number": "FIC 000059",
+      "marc_control_number": 29,
+      "author": "Veronica Roth",
+      "title": "The Maze of Shadows",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 760,
+    "fields": {
+      "accession_number": "FIC 000060",
+      "marc_control_number": 17,
+      "author": "Veronica Roth",
+      "title": "The Lightning Rebellion",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 761,
+    "fields": {
+      "accession_number": "FIC 000061",
+      "marc_control_number": 16,
+      "author": "Suzanne Collins",
+      "title": "The Hunger Conflict",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 762,
+    "fields": {
+      "accession_number": "FIC 000062",
+      "marc_control_number": 50,
+      "author": "Rick Riordan",
+      "title": "The Stand Rewritten",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 763,
+    "fields": {
+      "accession_number": "FIC 000063",
+      "marc_control_number": 30,
+      "author": "J.K. Rowling",
+      "title": "The Philosopher's Quest",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 764,
+    "fields": {
+      "accession_number": "FIC 000064",
+      "marc_control_number": 25,
+      "author": "Veronica Roth",
+      "title": "It Returns",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 765,
+    "fields": {
+      "accession_number": "FIC 000065",
+      "marc_control_number": 37,
+      "author": "Stephen King",
+      "title": "The Philosopher's Quest",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 766,
+    "fields": {
+      "accession_number": "FIC 000066",
+      "marc_control_number": 41,
+      "author": "Suzanne Collins",
+      "title": "The Fire Catcher",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 767,
+    "fields": {
+      "accession_number": "FIC 000067",
+      "marc_control_number": 3,
+      "author": "Stephen King",
+      "title": "The Goblet's Secret",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 768,
+    "fields": {
+      "accession_number": "FIC 000068",
+      "marc_control_number": 29,
+      "author": "Veronica Roth",
+      "title": "The Maze of Shadows",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 769,
+    "fields": {
+      "accession_number": "FIC 000069",
+      "marc_control_number": 2,
+      "author": "Veronica Roth",
+      "title": "It Returns",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 770,
+    "fields": {
+      "accession_number": "FIC 000070",
+      "marc_control_number": 9,
+      "author": "Suzanne Collins",
+      "title": "The Goblet's Secret",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 771,
+    "fields": {
+      "accession_number": "FIC 000071",
+      "marc_control_number": 44,
+      "author": "Rick Riordan",
+      "title": "It Returns",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 772,
+    "fields": {
+      "accession_number": "FIC 000072",
+      "marc_control_number": 21,
+      "author": "J.K. Rowling",
+      "title": "The Fire Catcher",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 773,
+    "fields": {
+      "accession_number": "FIC 000073",
+      "marc_control_number": 15,
+      "author": "Stephen King",
+      "title": "The Lightning Rebellion",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 774,
+    "fields": {
+      "accession_number": "FIC 000074",
+      "marc_control_number": 10,
+      "author": "Stephen King",
+      "title": "The Maze of Shadows",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 775,
+    "fields": {
+      "accession_number": "FIC 000075",
+      "marc_control_number": 10,
+      "author": "Stephen King",
+      "title": "The Maze of Shadows",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 776,
+    "fields": {
+      "accession_number": "FIC 000076",
+      "marc_control_number": 47,
+      "author": "Stephen King",
+      "title": "The Stand Rewritten",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 777,
+    "fields": {
+      "accession_number": "FIC 000077",
+      "marc_control_number": 46,
+      "author": "Stephen King",
+      "title": "The Fire Catcher",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 778,
+    "fields": {
+      "accession_number": "FIC 000078",
+      "marc_control_number": 43,
+      "author": "Veronica Roth",
+      "title": "The Lightning Rebellion",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 779,
+    "fields": {
+      "accession_number": "FIC 000079",
+      "marc_control_number": 29,
+      "author": "Veronica Roth",
+      "title": "The Maze of Shadows",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 780,
+    "fields": {
+      "accession_number": "FIC 000080",
+      "marc_control_number": 47,
+      "author": "Stephen King",
+      "title": "The Stand Rewritten",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 781,
+    "fields": {
+      "accession_number": "FIC 000081",
+      "marc_control_number": 46,
+      "author": "Stephen King",
+      "title": "The Fire Catcher",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 782,
+    "fields": {
+      "accession_number": "FIC 000082",
+      "marc_control_number": 48,
+      "author": "Stephen King",
+      "title": "The Hunger Conflict",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 783,
+    "fields": {
+      "accession_number": "FIC 000083",
+      "marc_control_number": 48,
+      "author": "Stephen King",
+      "title": "The Hunger Conflict",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 784,
+    "fields": {
+      "accession_number": "FIC 000084",
+      "marc_control_number": 19,
+      "author": "Stephen King",
+      "title": "The Hunger Conflict",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 785,
+    "fields": {
+      "accession_number": "FIC 000085",
+      "marc_control_number": 42,
+      "author": "Stephen King",
+      "title": "The Fire Catcher",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 786,
+    "fields": {
+      "accession_number": "FIC 000086",
+      "marc_control_number": 31,
+      "author": "Stephen King",
+      "title": "It Returns",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 787,
+    "fields": {
+      "accession_number": "FIC 000087",
+      "marc_control_number": 49,
+      "author": "J.K. Rowling",
+      "title": "The Goblet's Secret",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 788,
+    "fields": {
+      "accession_number": "FIC 000088",
+      "marc_control_number": 48,
+      "author": "Stephen King",
+      "title": "The Hunger Conflict",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 789,
+    "fields": {
+      "accession_number": "FIC 000089",
+      "marc_control_number": 2,
+      "author": "Veronica Roth",
+      "title": "It Returns",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 790,
+    "fields": {
+      "accession_number": "FIC 000090",
+      "marc_control_number": 49,
+      "author": "J.K. Rowling",
+      "title": "The Goblet's Secret",
+      "publisher": "Bloomsbury",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 791,
+    "fields": {
+      "accession_number": "FIC 000091",
+      "marc_control_number": 25,
+      "author": "Veronica Roth",
+      "title": "It Returns",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 792,
+    "fields": {
+      "accession_number": "FIC 000092",
+      "marc_control_number": 16,
+      "author": "Suzanne Collins",
+      "title": "The Hunger Conflict",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 793,
+    "fields": {
+      "accession_number": "FIC 000093",
+      "marc_control_number": 30,
+      "author": "J.K. Rowling",
+      "title": "The Philosopher's Quest",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 794,
+    "fields": {
+      "accession_number": "FIC 000094",
+      "marc_control_number": 43,
+      "author": "Veronica Roth",
+      "title": "The Lightning Rebellion",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 795,
+    "fields": {
+      "accession_number": "FIC 000095",
+      "marc_control_number": 38,
+      "author": "Suzanne Collins",
+      "title": "The Philosopher's Quest",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 796,
+    "fields": {
+      "accession_number": "FIC 000096",
+      "marc_control_number": 3,
+      "author": "Stephen King",
+      "title": "The Goblet's Secret",
+      "publisher": "Penguin Books",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 797,
+    "fields": {
+      "accession_number": "FIC 000097",
+      "marc_control_number": 36,
+      "author": "Suzanne Collins",
+      "title": "The Maze of Shadows",
+      "publisher": "Scholastic Inc.",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 798,
+    "fields": {
+      "accession_number": "FIC 000098",
+      "marc_control_number": 4,
+      "author": "Veronica Roth",
+      "title": "The Philosopher's Quest",
+      "publisher": "HarperCollins",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 799,
+    "fields": {
+      "accession_number": "FIC 000099",
+      "marc_control_number": 45,
+      "author": "Stephen King",
+      "title": "The Maze of Shadows",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  },
+  {
+    "model": "libapp.book",
+    "pk": 800,
+    "fields": {
+      "accession_number": "FIC 000100",
+      "marc_control_number": 37,
+      "author": "Stephen King",
+      "title": "The Philosopher's Quest",
+      "publisher": "Random House",
+      "collection_type": "ficandscholastic",
+      "room_use": false,
+      "date_borrowed": null,
+      "status": "available",
+      "status_notes": null,
+      "user": null,
+      "due_date": null
+    }
+  }
+]
