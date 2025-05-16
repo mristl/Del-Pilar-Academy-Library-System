@@ -1,0 +1,217 @@
+{% extends 'libapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<title>Register</title>
+<style>
+    .user_card {
+        width: 400px;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin: auto;
+    }
+    #form-title {
+        color: #343a40;
+        font-weight: bold;
+        text-align: center;
+    }
+    .form_container {
+        margin-top: 20px;
+    }
+    .input-group-text {
+        background: #007bff !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 0.25rem 0 0 0.25rem !important;
+        display: flex;
+        align-items: center;
+        height: 100%; /* ensures it matches input */
+    }
+    .form_container input.form-control {
+        box-shadow: none !important;
+        outline: 0 !important;
+        border-radius: 0 .25rem .25rem 0;
+        border: 1px solid #ced4da;
+    }
+    .login_btn {
+        width: 100%;
+        background: #007bff !important;
+        color: white !important;
+        border-radius: 20px;
+        border: none;
+        padding: 10px;
+        font-weight: 500;
+    }
+    .error-text {
+        color: red;
+        font-size: 0.875rem;
+        margin-top: 5px;
+    }
+    .errorlist {
+        list-style: none;
+        padding-left: 0;
+        color: red;
+        margin-top: 5px;
+    }
+    .cancel-link {
+        color: red;
+        font-weight: 500;
+        text-decoration: none;
+    }
+    .cancel-link i {
+        margin-right: 5px;
+    }
+
+    /* Center the form container */
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full viewport height */
+    }
+</style>
+
+<div class="container py-5">
+    <div class="user_card">
+        <h3 id="form-title">Register New Account</h3>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show mt-3" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="form_container">
+            <form id="main-form" method="POST">
+                {% csrf_token %}
+
+                <div class="form-group mb-3">
+                    {% for error in form.username.errors %}
+                        <div class="error-text">{{ error }}</div>
+                    {% endfor %}
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        {{ form.username }}
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    {% for error in form.email.errors %}
+                        <div class="error-text">{{ error }}</div>
+                    {% endfor %}
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+                        </div>
+                        {{ form.email }}
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    {% for error in form.password1.errors %}
+                        <div class="error-text">{{ error }}</div>
+                    {% endfor %}
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        {{ form.password1 }}
+                    </div>
+                </div>
+
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}
+                        <p class="mb-0">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="form-group mb-3">
+                    {% for error in form.password2.errors %}
+                        <div class="error-text">{{ error }}</div>
+                    {% endfor %}
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        {{ form.password2 }}
+                    </div>
+                </div>
+
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.non_field_errors %}
+                            <p class="mb-0">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <div class="d-flex justify-content-center mt-3 login_container">
+                    <input class="btn login_btn" type="submit" value="Register Account">
+                </div>
+            </form>
+
+            {# Moved the error message div outside and after the form's button container #}
+            <div id="network-error-message" class="alert alert-danger mt-2" style="display: none; text-align: center;" role="alert">
+                You appear to be offline. Please check your internet connection and try again.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const usernameField = document.querySelector('input[name="username"]');
+        const emailField = document.querySelector('input[name="email"]');
+        const password1Field = document.querySelector('input[name="password1"]');
+        const password2Field = document.querySelector('input[name="password2"]');
+
+        if (usernameField) {
+            usernameField.placeholder = 'Username..';
+            usernameField.classList.add('form-control');
+        }
+        if (emailField) {
+            emailField.placeholder = 'Email..';
+            emailField.classList.add('form-control');
+        }
+        if (password1Field) {
+            password1Field.placeholder = 'Enter password...';
+            password1Field.classList.add('form-control');
+        }
+        if (password2Field) {
+            password2Field.placeholder = 'Re-enter Password...';
+            password2Field.classList.add('form-control');
+        }
+
+        // Refill password fields from sessionStorage
+        if (password1Field && !password1Field.value && sessionStorage.getItem('tempPassword1')) {
+            password1Field.value = sessionStorage.getItem('tempPassword1');
+        }
+        if (password2Field && !password2Field.value && sessionStorage.getItem('tempPassword2')) {
+            password2Field.value = sessionStorage.getItem('tempPassword2');
+        }
+
+        // Clear stored values after refill
+        sessionStorage.removeItem('tempPassword1');
+        sessionStorage.removeItem('tempPassword2');
+
+        // Save password field values before form submission
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function () {
+                sessionStorage.setItem('tempPassword1', password1Field.value);
+                sessionStorage.setItem('tempPassword2', password2Field.value);
+            });
+        }
+    });
+</script>
+
+{% endblock %}

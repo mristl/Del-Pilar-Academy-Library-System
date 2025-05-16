@@ -1,0 +1,38 @@
+{% extends 'libapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<title>Computer Use</title>
+<div class="headingFinal">
+    <h2>Computer Use</h2>
+    <h6>Record library users that use the computer</h6>
+</div>
+
+<div class="middleCard">  
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="col">
+            <div class="row mb-3">
+                <input type="text" id="user_id" class="form-control" placeholder="User ID" name="user_id" required style="width: 400px; height: 50px;">
+            </div>
+
+            <div class="row">
+                <button type="submit" class="btn btn-primary btn-block" style="border-radius: 20px;">Submit</button>
+            </div>
+        </div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="row mt-3">
+                    <div class="alert {% if message.tags == 'success' %}alert-success{% elif message.tags == 'error' %}alert-danger{% endif %} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'libapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<title>Overdue Book Simulation Tool</title>
+<div class="container mt-4">
+    <h2>Overdue Book Simulation Tool</h2>
+    <p>This tool allows you to temporarily set the due date of borrowed books to a specific number of days in the past to simulate the overdue status, or reset it back to its calculated date.</p>
+    <p><strong class="text-danger">Warning:</strong> Use this tool for testing purposes only. Changes affect the actual book records until reset.</p>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags == 'error' %}alert-danger{% elif message.tags == 'success' %}alert-success{% else %}alert-info{% endif %}" role="alert">
+                {{ message|safe }} {# Use safe filter if messages contain HTML #}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if borrowed_books %}
+        <table class="table table-striped table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Accession No</th>
+                    <th>Title</th>
+                    <th>Borrower</th>
+                    <th>Original Borrow Date</th>
+                    <th>Current Due Date</th>
+                    <th style="width: 30%;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in borrowed_books %}
+                <tr>
+                    <td>{{ book.accession_number }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.user.name|default:"N/A" }} ({{ book.user.id_number|default:"N/A" }})</td>
+                    <td>{{ book.date_borrowed|date:"Y-m-d H:i"|default:"N/A" }}</td>
+                    <td>{{ book.due_date|date:"Y-m-d H:i"|default:"N/A" }}</td>
+                    <td>
+                        {# Form to set specific days overdue #}
+                        <form method="post" action="{% url 'overdue_simulation_tool' %}" class="form-inline mb-2" style="display: inline-block; vertical-align: top;">
+                            {% csrf_token %}
+                            <input type="hidden" name="book_accession_number" value="{{ book.accession_number }}">
+                            <input type="hidden" name="action" value="set_overdue_days">
+                             <div class="form-group mr-2">
+                                <label for="days_overdue_{{ book.accession_number }}" class="sr-only">Days Overdue</label>
+                                <input type="number" class="form-control form-control-sm"
+                                       id="days_overdue_{{ book.accession_number }}" name="days_overdue"
+                                       min="1" value="1" required style="width: 70px;"
+                                       title="Set due date to this many days ago">
+                            </div>
+                            <button type="submit" class="btn btn-warning btn-sm">
+                                Set Days Overdue
+                            </button>
+                        </form>
+
+                        {# Form to reset the due date #}
+                        <form method="post" action="{% url 'overdue_simulation_tool' %}" style="display: inline-block; vertical-align: top;">
+                            {% csrf_token %}
+                            <input type="hidden" name="book_accession_number" value="{{ book.accession_number }}">
+                            <button type="submit" name="action" value="reset_due_date" class="btn btn-success btn-sm">
+                                Reset Due Date
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            There are currently no books marked as 'Borrowed' or 'Overdue' in the system to simulate.
+        </div>
+    {% endif %}
+
+     <a href="{% url 'home_page' %}" class="btn btn-secondary mt-3">Back to Home</a>
+
+</div>
+{% endblock %}

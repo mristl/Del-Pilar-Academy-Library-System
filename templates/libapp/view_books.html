@@ -1,0 +1,346 @@
+{% extends 'libapp/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<!--Bootstrap and DataTables CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<style>
+    #circulationTable thead th {
+        font-size: 0.85rem !important;
+        text-align: center !important;
+        vertical-align: middle;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+<title>Circulation</title>
+<div class="container">
+    <div class="py-3"><h2>Circulation</h2></div>
+    <div id="date-today" class="pb-3"><h6>Date Today: {{ current_date }}</h6></div>
+
+    {% if messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+    
+    <!-- Filters and Sorting -->
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <!-- Status Filters -->
+        <div class="d-flex align-items-center flex-wrap gap-2">
+            <span>Status:</span>
+            <label><input type="checkbox" value="Available" class="status-filter"> <span class="badge bg-success">Available</span></label>
+            <label><input type="checkbox" value="Borrowed" class="status-filter"> <span class="badge bg-primary">Borrowed</span></label>
+            <label><input type="checkbox" value="Flagged" class="status-filter"> <span class="badge bg-danger">Flagged</span></label>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-text" id="circulationSearchAddon"><i class="fas fa-magnifying-glass"></i></span>
+                <input type="search" id="searchBooks" class="form-control" placeholder="Search book or borrower name..." aria-label="Search Circulation" aria-describedby="circulationSearchAddon">
+            </div>
+        </div>
+
+    
+    <div class="row">
+        <div class="col-md-12">
+            <table id="circulationTable" class="table table-striped table-bordered" style="width:100%">
+                <thead class="table-white">
+                    <tr>
+                        <th>View Details</th>
+                        <th data-column="1">Accession Number <i class="fa fa-sort sort-icon"></i></th>
+                        <th data-column="2">Book Title <i class="fa fa-sort sort-icon"></i></th>
+                        <th data-column="3">Borrow Date <i class="fa fa-sort sort-icon"></i></th>
+                        <th data-column="4">Due Date <i class="fa fa-sort sort-icon"></i></th>
+                        <th data-column="5">Remaining Days <i class="fa fa-sort sort-icon"></i></th>
+                        <th data-column="6">Status <i class="fa fa-sort sort-icon"></i></th>
+                        <th data-column="7">Borrower Name <i class="fa fa-sort sort-icon"></i></th>
+                        <th>Return?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in view_list %}
+                    <tr class="book-row" data-status="{{ x.status|lower }}">
+                        <td>{% if x.marc_control_number %}
+                            <a href="{% url 'view_book_record' x.marc_control_number.marc_001_control_number %}" class="btn btn-light">
+                                View
+                            </a>
+                            {% endif %}</td>
+                        <td>{{ x.accession_number }}</td>
+                        <td>{{ x.title }}</td>
+                        
+                        <td data-sort="{% if x.status == 'borrowed' or x.status == 'overdue' %}{{ x.date_borrowed|date:'Y-m-d' }}{% endif %}">
+                            {% if x.status == "borrowed" or x.status == "overdue" %}{{ x.date_borrowed|date:"F d, D" }}{% endif %}
+                        </td>
+                        
+                        <td data-sort="{% if x.status == 'borrowed' or x.status == 'overdue' %}{{ x.due_date|date:'Y-m-d' }}{% endif %}">
+                            {% if x.status == "borrowed" or x.status == "overdue" %}{{ x.due_date|date:"F d, D" }}{% endif %}
+                        </td>
+                        
+                        <td data-sort="{% if not x.room_use and x.status == 'borrowed' or not x.room_use and x.status == 'overdue' %}{{ x.days_remaining }}{% else %}99999{% endif %}">
+                            {% if not x.room_use and x.status == "borrowed" or not x.room_use and x.status == "overdue" %}
+                                {% if x.days_remaining < 0 %}
+                                    <span class="text-danger">{{ x.days_remaining }} days overdue</span>
+                                {% elif x.days_remaining == 0 %}
+                                     0
+                                {% elif x.days_remaining > 0 %}
+                                    {{ x.days_remaining }}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        
+                        <td>{% if x.status|lower == "overdue" or x.status|lower == "flagged" %}<span class="text-danger">{{ x.status }}</span>{% elif x.status|lower == "available" %}<span class="text-success">{{ x.status }}</span>{% else %}{{ x.status }}{% endif %}</td>
+                        
+                        <td data-sort="{% if x.status == 'borrowed' or x.status == 'overdue' %}{{ x.user.name|default_if_none:''|lower }}{% endif %}">
+                            {% if x.status == "borrowed" or x.status == "overdue" %} {{ x.user.name }} {% endif %}
+                        </td>
+                        <td>{% if x.status|lower == "available" or x.status|lower == "flagged" %}<button type="button" class="btn btn-secondary" disabled>Return</button>{% else %}<form method="post" action="{% url 'confirm_return' x.accession_number %}">{% csrf_token %}<input type="hidden" name="accession_number" value="{{ x.accession_number }}">{% if x.days_remaining < 0 %}<button type="submit" class="btn btn-danger">Return</button>{% else %}<button type="submit" class="btn btn-success">Return</button>{% endif %}</form>{% endif %}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="9">No books match the search criteria.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.js"></script>
+
+<script>
+    // --- Custom DataTables Sorting Plugins ---
+
+    // For date columns where empty strings ("" or null from data-sort) should be last
+    $.extend($.fn.dataTable.ext.type.order, {
+        "date-empty-last-pre": function (d) {
+            if (d === null || d === "" || typeof d === 'undefined') {
+                return null; 
+            }
+            const parts = String(d).split('-');
+            if (parts.length === 3) {
+                const date = new Date(Date.UTC(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2])));
+                if (!isNaN(date.valueOf())) {
+                    return date.getTime();
+                }
+            }
+            return -Infinity; // Fallback for unparseable dates
+        },
+        "date-empty-last-asc": function (a, b) {
+            if (a === null && b === null) return 0;
+            if (a === null) return 1;
+            if (b === null) return -1;
+            return a - b;
+        },
+        "date-empty-last-desc": function (a, b) {
+            if (a === null && b === null) return 0;
+            if (a === null) return 1;
+            if (b === null) return -1;
+            return b - a;
+        }
+    });
+
+    // For string columns where empty strings ("" or null from data-sort) should be last
+    $.extend($.fn.dataTable.ext.type.order, {
+        "string-empty-last-pre": function (d) {
+            if (d === null || d === "" || typeof d === 'undefined') {
+                return null; 
+            }
+            return String(d).toLowerCase().trim();
+        },
+        "string-empty-last-asc": function (a, b) {
+            if (a === null && b === null) return 0;
+            if (a === null) return 1;
+            if (b === null) return -1;
+            return a < b ? -1 : (a > b ? 1 : 0);
+        },
+        "string-empty-last-desc": function (a, b) {
+            if (a === null && b === null) return 0;
+            if (a === null) return 1;
+            if (b === null) return -1;
+            return b < a ? -1 : (b > a ? 1 : 0);
+        }
+    });
+
+    // For numeric columns where a special value (e.g., 99999 from data-sort) indicates "empty" and should be last
+    $.extend($.fn.dataTable.ext.type.order, {
+        "numeric-empty-last-pre": function (d) {
+            const val = parseFloat(d);
+            if (isNaN(val)) { 
+                return null; 
+            }
+            if (val === 99999) { // Special value for "empty"
+                return null; 
+            }
+            return val;
+        },
+        "numeric-empty-last-asc": function (a, b) {
+            if (a === null && b === null) return 0;
+            if (a === null) return 1;
+            if (b === null) return -1;
+            return a - b;
+        },
+        "numeric-empty-last-desc": function (a, b) {
+            if (a === null && b === null) return 0;
+            if (a === null) return 1;
+            if (b === null) return -1;
+            return b - a;
+        }
+    });
+
+    $(document).ready(function() {
+        var table = new DataTable('#circulationTable', {
+            dom: '<"row mb-2"<"col-md-6 d-flex align-items-center"l>>' +
+                 't' +
+                 '<"row mt-3"<"col-md-6"i><"col-md-6 d-flex justify-content-end"p>>',
+            paging: true,
+            pageLength: localStorage.getItem('circulation_pageLength') ? parseInt(localStorage.getItem('circulation_pageLength')) : 10,
+            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            info: true,
+            ordering: true,
+            order: localStorage.getItem('circulation_sorting') ? JSON.parse(localStorage.getItem('circulation_sorting')) : [[1, 'asc']],
+            autoWidth: false, 
+            columnDefs: [
+                { orderable: false, targets: [0, 8] },     
+                { targets: 3, type: 'date-empty-last' },    // Borrow Date (column index 3)
+                { targets: 4, type: 'date-empty-last' },    // Due Date (column index 4)
+                { targets: 5, type: 'numeric-empty-last' }, // Remaining Days (column index 5)
+                { targets: 7, type: 'string-empty-last' }  // Borrower Name (column index 7)
+            ],
+            language: {
+                info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                infoEmpty: "No entries available",
+                infoFiltered: "(filtered from _MAX_ total entries)"
+            },
+            initComplete: function(settings, json) {
+                var api = this.api();
+                setTimeout(function() {
+                    api.columns.adjust().draw(false);
+                }, 100);
+            }
+        });
+
+        // --- Helper Functions ---
+        function resetSortIcons() {
+            $('#circulationTable thead th i.sort-icon')
+                .removeClass('fa-sort-up fa-sort-down')
+                .addClass('fa-sort');
+        }
+
+        function updateSortIcons() {
+            resetSortIcons();
+            let order = table.order();
+            if (order.length > 0) {
+                let columnIndex = order[0][0];
+                let direction = order[0][1];
+                let columnIcon = $(`#circulationTable thead th[data-column="${columnIndex}"] i.sort-icon`);
+                if (direction === 'asc') {
+                    columnIcon.removeClass('fa-sort fa-sort-down').addClass('fa-sort-up');
+                } else if (direction === 'desc') {
+                    columnIcon.removeClass('fa-sort fa-sort-up').addClass('fa-sort-down');
+                }
+            }
+        }
+
+        function saveFilters() {
+            let selectedStatuses = $('.status-filter:checked').map(function() {
+                return this.value;
+            }).get();
+            localStorage.setItem('circulation_selectedStatuses', JSON.stringify(selectedStatuses));
+        }
+
+        function loadFilters() {
+            let savedStatuses = JSON.parse(localStorage.getItem('circulation_selectedStatuses'));
+            if (savedStatuses) {
+                $('.status-filter').each(function() {
+                    this.checked = savedStatuses.includes(this.value);
+                });
+            }
+        }
+
+         function loadSearchTerm() {
+            let savedSearch = localStorage.getItem('circulation_searchTerm');
+            if (savedSearch) {
+                $('#searchBooks').val(savedSearch); 
+            }
+        }
+
+        // --- Custom Filtering Logic ---
+        $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+           if (settings.nTable.id !== 'circulationTable') {
+               return true;
+           }
+           let selectedStatuses = $('.status-filter:checked').map(function() {
+               return this.value.toLowerCase();
+           }).get();
+           let rowStatus = (data[6] || "").trim().toLowerCase(); 
+           let statusMatch = false;
+           if (selectedStatuses.length === 0) {
+               statusMatch = true; 
+           } else {
+               if (selectedStatuses.includes(rowStatus)) {
+                   statusMatch = true;
+               }
+               else if (selectedStatuses.includes('borrowed') && rowStatus === 'overdue') {
+                   statusMatch = true;
+               }
+           }
+           let searchTerm = $('#searchBooks').val().trim().toLowerCase();
+           let bookTitle = (data[2] || "").trim().toLowerCase();      // Column 2: Book Title
+           let borrowerName = (data[7] || "").trim().toLowerCase();    // Column 7: Borrower Name
+           if (!searchTerm) {
+                return statusMatch;
+           }
+           let searchMatch = bookTitle.includes(searchTerm) || borrowerName.includes(searchTerm);
+           return statusMatch && searchMatch;
+       });
+
+        // --- Event Handlers ---
+        $('#circulationTable thead th[data-column]').on('click', function() { 
+            setTimeout(function() { 
+                updateSortIcons();
+                localStorage.setItem('circulation_sorting', JSON.stringify(table.order()));
+            }, 50); 
+        });
+
+        $('.status-filter').on('change', function() {
+            saveFilters(); 
+            table.draw(); 
+        });
+
+        $('#searchBooks').on('keyup', function() {
+            clearTimeout($.data(this, 'timer'));
+            var newSearchTerm = $(this).val().trim();
+            $(this).data('timer', setTimeout(function() {
+                localStorage.setItem('circulation_searchTerm', newSearchTerm); 
+                table.draw(); 
+            }, 250));
+        });
+
+        table.on('length.dt', function(e, settings, len) {
+            localStorage.setItem('circulation_pageLength', len);
+        });
+
+        // --- Initial Load ---
+        loadFilters();      
+        loadSearchTerm();   
+        updateSortIcons();  
+        table.draw();       
+    });
+</script>
+{% endblock %}
+{% endblock %}

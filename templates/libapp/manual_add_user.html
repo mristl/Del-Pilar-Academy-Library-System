@@ -1,0 +1,282 @@
+{% extends 'libapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Heading -->
+<div class="headingFinalreport">
+    <h2>Add Library User</h2>
+    <h6>Add a new user to the library system</h6>
+</div>
+
+<div class="content-container">
+    <!-- Display messages - MOVED HERE -->
+    {% if messages %}
+    <div class="messages-container">
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                {% with 'danger' as alert_class %}
+                    <div class="alert alert-{{ alert_class }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endwith %}
+            {% elif message.tags == 'debug' %}
+                {% with 'secondary' as alert_class %}
+                    <div class="alert alert-{{ alert_class }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endwith %}
+            {% else %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Manual user add form -->
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Add user information</h5>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="form-group mb-3">
+                    <label for="lrn" class="form-label text-start w-100">LRN / ID Number</label>
+                    <input type="text" name="lrn" id="lrn" class="form-control" required placeholder="000000123456">
+                </div>
+               
+                <div class="form-group mb-3">
+                    <label for="name" class="form-label text-start w-100">Library User Name</label>
+                    <input type="text" name="name" id="name" class="form-control" required placeholder="DELA CRUZ, Juan M.">
+                </div>
+               
+               
+                <div class="form-group mb-3">
+                    <label for="group" class="form-label text-start w-100">User Group</label>
+                    <select name="group" id="group" class="form-control" required>
+                        <option value="" disabled selected>-- Select User Group --</option>
+                        <option value="Student">Student</option>
+                        <option value="Friends of the Library">Friends of the Library</option>
+                        <option value="Staff">Staff</option>
+                    </select>
+                </div>        
+               
+                <div class="form-group mb-3">
+                    <label for="section" class="form-label text-start w-100">Section</label>
+                    <input type="text" name="section" id="section" class="form-control" placeholder="e.g., 7-Helium, STEM 12-A">
+                </div>
+               
+               
+                <div class="form-group mb-4">
+                    <label for="email" class="form-label text-start w-100">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="email@student.delpa.edu">
+                </div>
+               
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'add_library_users' %}" class="btn btn-secondary">Back</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if show_update_prompt and pending_user %}
+<div class="modal fade show" style="display: block;" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #0c2368; color: white;">
+          <h5 class="modal-title">Duplicate User Detected</h5>
+        </div>
+        <div class="modal-body">
+          <p>This user is already in the database. Would you like to update the existing record?</p>
+        </div>
+        <div class="modal-footer">
+          <a href="{% url 'manual_add_user' %}" class="btn btn-secondary" style="min-width: 100px;">Cancel</a>
+          <input type="hidden" name="lrn" value="{{ pending_user.id_number }}">
+          <input type="hidden" name="name" value="{{ pending_user.name }}">
+          <input type="hidden" name="group" value="{{ pending_user.user_type }}">
+          <input type="hidden" name="section" value="{{ pending_user.section }}">
+          <input type="hidden" name="email" value="{{ pending_user.school_email }}">
+          <input type="hidden" name="confirm_update" value="yes">
+          <button type="submit" class="btn btn-primary" style="min-width: 100px;">Yes</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endif %}
+
+<style>
+  /* Simple Side-by-Side Layout Styles */
+  .content-container {
+    max-width: 700px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding: 20px;
+    background: transparent;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  
+  .card {
+    flex: 1;
+    margin-bottom: 0;
+    border: 1px solid #dee2e6;
+  }
+  
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-body {
+    flex-grow: 1;
+    padding: 25px;
+  }
+  
+  .messages-container {
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  
+  .d-flex.justify-content-between {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .btn-primary {
+    background-color: #0c2368;
+    border-color: #0c2368;
+    padding: 10px 25px;
+    border-radius: 20px;
+    min-width: 100px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0a1d54;
+    border-color: #0a1d54;
+  }
+  
+  .btn-secondary {
+    padding: 10px 25px;
+    border-radius: 20px;
+    min-width: 100px;
+  }
+  
+  .card-header {
+    background-color: #0c2368 !important;
+    padding: 15px 20px;
+  }
+  
+  .alert {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+  }
+  
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-align: left;
+    display: block;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-control {
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+  
+  .form-control:focus {
+    border-color: #0c2368;
+    box-shadow: 0 0 0 0.25rem rgba(12, 35, 104, 0.25);
+  }
+  
+  .modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .modal-header {
+    border-bottom: 0;
+  }
+  
+  .modal-footer {
+    border-top: 0;
+    padding: 15px 20px 20px;
+  }
+  
+  .text-start {
+    text-align: left !important;
+  }
+  
+  .w-100 {
+    width: 100% !important;
+  }
+  
+  /* Style for disabled form elements */
+  .form-control:disabled,
+  .form-control[readonly] {
+    background-color: #e9ecef;
+    opacity: 0.6;
+  }
+</style>
+
+{% block extra_js %}
+<script>
+    const groupSelect = document.getElementById('group');
+    const sectionField = document.getElementById('section');
+
+    function updateColor() {
+        if (groupSelect.value === "") {
+            groupSelect.style.color = 'grey';
+        } else {
+            groupSelect.style.color = 'black';
+        }
+    }
+    
+    function toggleSectionField() {
+        if (groupSelect.value === "Staff") {
+            sectionField.disabled = true;
+            sectionField.value = "";
+            sectionField.placeholder = "Not applicable for Staff";
+        } else {
+            sectionField.disabled = false;
+            sectionField.placeholder = "e.g., 7-Helium, STEM 12-A";
+        }
+    }
+
+    // Initial check
+    updateColor();
+    toggleSectionField();
+
+    // Update on change
+    groupSelect.addEventListener('change', function() {
+        updateColor();
+        toggleSectionField();
+    });
+</script>
+{% endblock %}
+
+{% endblock %}

@@ -1,0 +1,229 @@
+{% extends 'libapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Heading -->
+<div class="headingFinalreport">
+    <h2>Upload Library Users</h2>
+    <h6>Upload a CSV file with user information</h6>
+</div>
+
+
+<div class="content-container">
+
+    <!-- Display messages - MOVED TO TOP -->
+    {% if messages %}
+    <div class="messages-container">
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                {% with 'danger' as alert_class %}
+                    <div class="alert alert-{{ alert_class }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endwith %}
+            {% elif message.tags == 'debug' %}
+                {% with 'secondary' as alert_class %}
+                    <div class="alert alert-{{ alert_class }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endwith %}
+            {% else %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <!-- Upload CSV form -->
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Upload a CSV file</h5>
+        </div>
+
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data" style="width: 100%;">
+                {% csrf_token %}
+                
+                <div class="alert alert-info" role="alert">
+                    <p class="mb-0">CSV file should have 5 columns:</p>
+                    <ol>
+                        <li>ID Number</li>
+                        <li>Name (format: "LASTNAME, First M.")</li>
+                        <li>Section</li>
+                        <li>User Group (Student, Staff, or Friends of the Library)</li>
+                        <li>Email</li>
+                    </ol>
+                </div>
+                
+                <div class="alert alert-warning" role="alert">
+                    <p class="mb-0"><strong>Note:</strong> Computer use records will be appended to the PastComputerRecords database, not replaced, so historical data will be preserved.</p>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="csv_file" class="form-label">Select CSV File</label>
+                    <div class="input-group">
+                        <input type="file" name="csv_file" id="csv_file" class="form-control" accept=".csv" required>
+                        <label class="input-group-text" for="csv_file">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </label>
+                    </div>
+                    <small class="text-muted">File must be in CSV format with the required columns</small>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Upload CSV</button>
+            </form>
+            
+            
+            <!-- Finish uploading button -->
+            <form method="POST" class="mt-4 text-center">
+                {% csrf_token %}
+                <button type="submit" name="finish_upload" class="btn btn-success">Done</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if show_update_prompt_csv %}
+<div class="modal fade show" style="display: block;" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #0c2368; color: white;">
+          <h5 class="modal-title">Duplicate Users Found</h5>
+        </div>
+        <div class="modal-body">
+            <p>{{ num_pending_updates }} user(s) in the CSV already exist in the database.<br>
+                Would you like to update their records with the new information?</p>
+
+            {% if update_ids %}
+                <div style="margin-top: 10px;">
+                    <strong>User IDs to be updated:</strong>
+                    <ul>
+                        {% for uid, uname in update_ids %}
+                            <li>{{ uid }} – {{ uname }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+        <div class="modal-footer">
+          <a href="{% url 'upload_users_csv' %}" class="btn btn-secondary" style="border-radius: 20px; min-width: 100px;">Cancel</a>
+          <input type="hidden" name="confirm_update_csv" value="yes">
+          <button type="submit" class="btn btn-primary" style="border-radius: 20px; min-width: 100px;">Yes</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endif %}
+
+<style>
+  /* Simple Side-by-Side Layout Styles */
+  .content-container {
+    max-width: 900px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding: 20px;
+    background: transparent;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  
+  .card {
+    flex: 1;
+    margin-bottom: 0;
+    border: 1px solid #dee2e6;
+  }
+  
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-body {
+    flex-grow: 1;
+    padding: 25px;
+  }
+  
+  .messages-container {
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  
+  .d-flex.justify-content-center.gap-3 {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .btn-primary {
+    background-color: #0c2368;
+    border-color: #0c2368;
+    padding: 10px 25px;
+    border-radius: 20px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0a1d54;
+    border-color: #0a1d54;
+  }
+  
+  .btn-secondary, .btn-success, .btn-danger {
+    padding: 10px 25px;
+    border-radius: 20px;
+  }
+  
+  .card-header {
+    background-color: #0c2368 !important;
+    padding: 15px 20px;
+  }
+  
+  .alert {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+  }
+  
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  
+  .input-group {
+    margin-bottom: 5px;
+  }
+  
+  .text-muted {
+    font-size: 0.875rem;
+  }
+  
+  .modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .modal-header {
+    border-bottom: 0;
+  }
+  
+  .modal-footer {
+    border-top: 0;
+    padding: 15px 20px 20px;
+  }
+</style>
+
+{% endblock %}

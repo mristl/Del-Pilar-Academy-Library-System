@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DPA Library - Borrowed Book Confirmation</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.5; }
+        .container { padding: 20px; border: 1px solid #ccc; border-radius: 5px; max-width: 600px; margin: auto; }
+        .highlight { font-weight: bold; }
+        .footer { margin-top: 20px; font-size: 0.9em; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>DPA Library - Borrowed Book Confirmation</h2>
+
+        <p>Dear <span class="highlight">{{ user_name }}</span>,</p>
+
+        <p>This email confirms that you have successfully borrowed the following book from the DPA Library:</p>
+
+        <ul>
+            <li><strong>Title:</strong> <span class="highlight">{{ book_title }}</span></li>
+            <li><strong>Accession Number:</strong> {{ accession_number }}</li>
+            <li><strong>Borrowed On:</strong> {{ borrow_date|date:"Y-m-d H:i" }}</li>
+            <li><strong>Expected Return Date:</strong> <span class="highlight">{{ expected_return_date|date:"Y-m-d" }}</span></li>
+        </ul>
+
+        <p>Please ensure to return the book by the expected return date to avoid any late fees.</p>
+
+        <p>Happy reading!</p>
+
+        <p>Thank you,<br>
+        The DPA Library Team</p>
+
+        <div class="footer">
+            <p>This is an automated message. Please do not reply directly to this email.</p>
+        </div>
+    </div>
+</body>
+</html>

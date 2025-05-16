@@ -1,0 +1,242 @@
+{% extends 'libapp/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+
+<!--Bootstrap and DataTables CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" crossorigin="anonymous">
+
+{% endblock %}
+
+{% block content %}
+<title>View Book</title>
+<style>
+    .hr-line{
+        border: none;
+        height: 2px;  /* Increase thickness */
+        background-color: #000; /* Change to black or visible color */
+        margin: 15px 2px; /* Add spacing above & below */
+        width: 100%;
+    }
+
+    .text-start{
+        padding-bottom:15px;
+    }
+
+</style>
+
+<div class="container">
+    <div class="py-3">
+        <h2>Manage Books</h2>
+        <h6>Edit Books currently in the System</h6>
+    </div>
+
+    {% if messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+
+    {% if related_books %}
+    {% for book in related_books %}
+    <div class="container w-100">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row d-flex align-items">
+                <div class="col-2">
+                    <h4 class="fw-bold">Unique to Book</h4>
+                </div>
+                <div class="col-md-5">
+                    <div class="text-start">
+                        <h6>Accession Number:</h6>
+                        <input type="text" class="form-control" value="{{ book.accession_number }}" readonly>
+                    </div>
+                    <div class="text-start">
+                        <h6>Currently Borrowed By:</h6>
+                        <input type="text" class="form-control"
+                            value="{% if book.user %}{{ book.user.name }}{% else %}Book is not being borrowed by a user{% endif %}"
+                            readonly>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="text-start">
+                        <h6>Status:</h6>
+                        <input type="text" class="form-control" value="{{ book.get_status_display }}" readonly>
+                    </div>
+                    <div class="text-start">
+                        <h6 class="mb-1">Notes:</h6>
+                        <input type="text" class="form-control" name="status_notes" value="{{ book.status_notes }}">
+                    </div>
+                    <input type="hidden" name="book_id" value="{{ book.accession_number }}">
+                    <input type="hidden" name="page" value="{{ related_books.number }}">
+                </div>
+            </div>
+            <div class="row d-flex align-items">
+                <div class="col-2">
+                </div>
+                <div class="col-10 d-flex justify-content-start" style="padding-bottom: 20px;">
+                        {% if book.status == 'flagged' %}
+                        <button class="btn" name="action" value="flag_book" style="background-color: red; color:white">Unflag</button>
+                        {% else %}
+                        <button class="btn" name="action" value="flag_book" style="background-color: red; color:white">Flag</button>
+                        {% endif %}
+                </div>
+            </div>
+        </form>
+
+            <!-- Unique to DelPa -->
+            <div class="row d-flex align-items">
+                <div class="col-2">
+                    <h4 class="fw-bold">Unique to DelPa</h4>
+                </div>
+                <div class="col-md-5" style="margin-bottom: 20px;">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="book_id" value="{{ book.accession_number }}">
+                        <input type="hidden" name="page" value="{{ related_books.number }}">
+                        <div class="text-start">
+                            <h6>Collection Type</h6>
+                            <select name="collection_type" class="form-control {% if book.collection_type.errors %}is-invalid{% endif %}">
+                                <option value="circulation" {% if book.collection_type == 'circulation' %}selected{% endif %}>Circulation</option>
+                                <option value="filipiniana" {% if book.collection_type == 'filipiniana' %}selected{% endif %}>Filipiniana</option>
+                                <option value="shsfilipiniana" {% if book.collection_type == 'shsfilipiniana' %}selected{% endif %}>SHS Filipiniana</option>
+                                <option value="shscirculation" {% if book.collection_type == 'shscirculation' %}selected{% endif %}>SHS Circulation</option>
+                                <option value="ficandscholastic" {% if book.collection_type == 'ficandscholastic' %}selected{% endif %}>Fiction and Scholastic</option>
+                                <option value="reference" {% if book.collection_type == 'reference' %}selected{% endif %}>Reference</option>
+                                <option value="archives" {% if book.collection_type == 'archives' %}selected{% endif %}>Archives</option>
+                                <option value="shsreference" {% if book.collection_type == 'shsreference' %}selected{% endif %}>SHS Reference</option>
+                                <option value="periodicals" {% if book.collection_type == 'periodicals' %}selected{% endif %}>Periodicals</option>
+                            </select>
+                        </div>
+
+                        <div class="text-start mt-2">
+                            <button type="submit" name="action" value="change_collection" class="btn btn-primary">Change Collection Type</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+        {% endif %}
+        </form>
+    
+    <!-- Pagination -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-3 d-flex justify-content-center align-items-center">
+        {% if related_books.has_previous %}
+            <a href="?page={{ related_books.previous_page_number }}"><button class="btn btn-block" style="background-color: rgb(28, 28, 152); color:white">Previous</button></a>
+        {% else %}
+            <button class="btn" style="background: rgb(173, 173, 173);">Previous</button></a>
+        {% endif %}
+        </div>
+
+        <div class="col-md-2 d-flex justify-content-center align-items-center"> Page {{ related_books.number }} of {{ related_books.paginator.num_pages }}</div>
+
+        <div class="col-md-3 d-flex justify-content-center align-items-center">
+            {% if related_books.has_next %}
+                <a href="?page={{ related_books.next_page_number }}"><button class="btn btn-block" style="background-color: rgb(28, 28, 152); color:white">Next</button></a>
+            {% else %}
+                <button class="btn" style="background: rgb(173, 173, 173);">Next</button></a>
+            {% endif %}
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+
+    <hr class="hr-line">
+
+
+    <div class="container w-100 text-start">
+        <form method="POST">
+            <div class="row d-flex align-items">
+                {% csrf_token %}
+                <div class = "col-2">
+                    <h4 class ="fw-bold" > MARC Information </h4>
+                </div>
+                <div class = "col-md-10" style = "align-items: left; margin-bottom: 20px;">
+                    <div class="text-start">
+                        <h6> 001 | Control Number </h6>
+                        <input type="text" id="control_number" name="control_number" class="form-control" value="{{marc_record.marc_001_control_number}}" required maxlength="50">
+                    </div>
+                    <div class="text-start">
+                        <h6> 245 | Title and Statement of Responsibility </h6>
+                        <input type="text" id="title_and_statement" name ="title_and_statement" class="form-control" value="{{marc_record.marc_245_title_and_statement_of_responsibility}}" required maxlength="255">
+                    </div>
+                    <div class="text-start">
+                        <h6> 100 | Main Entry Personal Name </h6>
+                        <input type="text" id="main_entry_personal_name" name="main_entry_personal_name" class="form-control" value="{{marc_record.marc_100_main_entry_personal_name}}" required maxlength="255">
+                    </div>
+                    <div class="text-start">
+                        <h6> 250 | Edition </h6>
+                        <input type="text" id="edition" class="form-control" name="edition" value="{{marc_record.marc_250_edition}}" maxlength="255">
+                    </div>
+                    <div class="text-start">
+                        <h6> 260 | Publication </h6>
+                        <input type="text" id="publication" class="form-control" name="publication" value="{{marc_record.marc_260_publication}}" maxlength="255" >
+                    </div>
+                    <div class="text-start">
+                        <h6> 300 | Physical Description </h6>
+                        <input type="text" id="physical_description" class="form-control" name="physical_description" {% if marc_record.marc_300_physical_description %} value="{{marc_record.marc_300_physical_description}}" maxlength="255" {% endif %}>
+                    </div>
+                    <div class="text-start">
+                        <h6> 490 | Series Statement </h6>
+                        <input type="text" id="series_statement" class="form-control" name="series_statement" {% if marc_record.marc_490_series_statement %} value="{{marc_record.marc_490_series_statement}}" maxlength="255" {% endif %}>
+                    </div>
+                    <div class="text-start">
+                        <h6> 5XX | Note </h6>
+                        <input type="text" id="marc_note" class="form-control" name="marc_note" value="{{marc_record.marc_501_note}}" maxlength="255" placeholder="A note on the book">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-block" name="action" value="change_marc" style="padding: 5px 20px; background-color: rgb(28, 28, 152);color:white;">Submit</button>
+            </div>
+            <input type="hidden" name="page" value="{{ related_books.number }}">
+        </form>
+        <hr class="hr-line">
+    <!--unique to delpa-->
+
+</div>
+
+<script>
+    let isFormSubmitted = false;
+    let isChanged = false;
+
+    // Attach submit listener to all forms
+    document.querySelectorAll('form').forEach(function(form) {
+        form.addEventListener('submit', function() {
+            isFormSubmitted = true;
+        });
+    });
+
+    // Mark the page as changed if any input is modified
+    document.querySelectorAll('input, textarea, select').forEach(function(el) {
+        el.addEventListener('change', function() {
+            isChanged = true;
+        });
+        el.addEventListener('input', function() {
+            isChanged = true;
+        });
+    });
+
+    // Warn when navigating away if changes are made and form not submitted
+    window.addEventListener('beforeunload', function (e) {
+        if (isChanged && !isFormSubmitted) {
+            e.preventDefault();
+            e.returnValue = '';
+        }
+    });
+</script>
+
+
+
+{% endblock %}

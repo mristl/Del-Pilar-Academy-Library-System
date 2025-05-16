@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DPA Library - Overdue Book Notification</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.5; }
+        .container { padding: 20px; border: 1px solid #ccc; border-radius: 5px; max-width: 600px; margin: auto; }
+        .highlight { font-weight: bold; }
+        .footer { margin-top: 20px; font-size: 0.9em; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>DPA Library - Overdue Book Notification</h2>
+
+        <p>Dear <span class="highlight">{{ user_name }}</span>,</p>
+
+        <p>This is a friendly reminder that the following book borrowed from the DPA Library is now overdue:</p>
+
+        <ul>
+            <li><strong>Title:</strong> {{ book_title }}</li>
+            <li><strong>Accession Number:</strong> {{ accession_number }}</li>
+            <li><strong>Due Date:</strong> {{ due_date|date:"Y-m-d" }}</li>
+        </ul>
+
+        <p>Please return the book as soon as possible to avoid further fines. Fines are calculated at ₱5.00 per day.</p>
+
+        <p>If you have already returned this book or believe this message is in error, please contact the library staff.</p>
+
+        <p>Thank you,<br>
+        The DPA Library Team</p>
+
+        <div class="footer">
+            <p>This is an automated message. Please do not reply directly to this email.</p>
+        </div>
+    </div>
+</body>
+</html>

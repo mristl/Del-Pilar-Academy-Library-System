@@ -1,0 +1,20 @@
+{% autoescape off %}
+<html>
+<body style="font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px;">
+    <div style="max-width:600px; margin: auto; background:white; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+        <h2>Welcome, {{ user }}!</h2>
+        <p>Thank you for registering with DPA Library. Please confirm your email address by clicking the button below:</p>
+        <p style="text-align:center;">
+            <a href="{{ protocol }}://{{ domain }}{% url 'activate' uidb64=uid token=token %}" 
+               style="background:#007bff; color:white; padding:10px 20px; text-decoration:none; border-radius:5px;">
+                Confirm Email
+            </a>
+        </p>
+        <p>If the button doesn’t work, copy this link and paste it into your browser:</p>
+        <p>{{ protocol }}://{{ domain }}{% url 'activate' uidb64=uid token=token %}</p>
+        <hr>
+        <p style="font-size:12px; color:#777;">If you didn't request to confirm your email for DPA Library, you may ignore this email.</p>
+    </div>
+</body>
+</html>
+{% endautoescape %}

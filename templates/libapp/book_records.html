@@ -1,0 +1,258 @@
+{% extends 'libapp/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<!-- Bootstrap and DataTables CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+
+<title>All Borrow Records</title>
+
+<div class="container">
+    <div class="py-3">
+        <h2>All Borrow Records</h2>
+    </div>
+    <div id="date-today" class="pb-3">
+        <h6>Records of all books borrowed and returned.</h6>
+    </div>
+
+    {% if messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+
+    <!-- Filters and Sorting -->
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <!-- Status Filters -->
+        <div class="d-flex align-items-center flex-wrap gap-2">
+            <span>Status:</span>
+            <label><input type="checkbox" value="borrowed" class="status-filter"> <span class="badge bg-danger">Borrowed</span></label>
+            <label><input type="checkbox" value="returned" class="status-filter"> <span class="badge bg-success">Returned</span></label>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-text" id="recordSearchAddon"><i class="fas fa-magnifying-glass"></i></span>
+                <input type="search" id="searchBooks" class="form-control" placeholder="Search book, author, or borrower..." aria-label="Search Records" aria-describedby="recordSearchAddon">
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table id="bookRecordsTable" class="table table-striped table-bordered" style="width:100%">
+                <thead class="table-white">
+                    <tr>
+                        <th>Accession Number <i class="fa fa-sort sort-icon"></i></th>
+                        <th>Book Title <i class="fa fa-sort sort-icon"></i></th>
+                        <th>Author <i class="fa fa-sort sort-icon"></i></th>
+                        <th>Borrower <i class="fa fa-sort sort-icon"></i></th>
+                        <th>Borrow Date <i class="fa fa-sort sort-icon"></i></th>
+                        <th>Return Date <i class="fa fa-sort sort-icon"></i></th>
+                        <th>Status <i class="fa fa-sort sort-icon"></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in records %}
+                    <tr>
+                        <td>{{ record.book.accession_number }}</td>
+                        <td>{{ record.book.title }}</td>
+                        <td>{{ record.book.author }}</td>
+                        <td>{{ record.user.name }}</td>
+                        <td>{{ record.borrow_date|date:"Y-m-d" }}</td>
+                        <td>{{ record.return_date|default_if_none:"N/A"|date:"Y-m-d" }}</td>
+                        <td>{{ record.borrow_status }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" class="text-center">No borrow records available.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<!-- jQuery & DataTables JS -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.js"></script>
+
+<script>
+    // Custom sorting for dates, placing "N/A" (blanks) last
+    $.extend($.fn.dataTable.ext.type.order, {
+        "date-na-last-pre": function (d) {
+            if (d === "N/A" || d === null || d === "") { // Handle "N/A" or empty strings
+                return null; // Special value for N/A
+            }
+            const parts = d.split('-');
+            if (parts.length === 3) {
+                const date = new Date(Date.UTC(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2])));
+                if (!isNaN(date.valueOf())) {
+                    return date.getTime();
+                }
+            }
+            return -Infinity; // Fallback for unparseable dates
+        },
+        "date-na-last-asc": function (a, b) {
+            if (a === null && b === null) return 0;
+            if (a === null) return 1;
+            if (b === null) return -1;
+            return a - b;
+        },
+        "date-na-last-desc": function (a, b) {
+            if (a === null && b === null) return 0;
+            if (a === null) return 1;
+            if (b === null) return -1;
+            return b - a;
+        }
+    });
+
+    $(document).ready(function() {
+        var table = new DataTable('#bookRecordsTable', {
+            dom: '<"row mb-2"<"col-md-6 d-flex align-items-center"l>>' +
+                 't' +
+                 '<"row mt-3"<"col-md-6"i><"col-md-6 d-flex justify-content-end"p>>',
+            paging: true,
+            pageLength: localStorage.getItem('bookrecords_pageLength') ? parseInt(localStorage.getItem('bookrecords_pageLength')) : 10,
+            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            info: true,
+            ordering: true,
+            order: localStorage.getItem('bookrecords_sorting') ? JSON.parse(localStorage.getItem('bookrecords_sorting')) : [[1, 'asc']], // Default sort by Title
+            columnDefs: [
+                { targets: 5, type: 'date-na-last' }, // <<< APPLY CUSTOM SORT TYPE HERE for Return Date (index 5)
+                { orderable: true, targets: '_all' } // Keep this for other columns
+            ],
+            language: {
+                info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                infoEmpty: "No entries available",
+                infoFiltered: "(filtered from _MAX_ total entries)"
+            },
+            initComplete: function(settings, json) {
+                var api = this.api();
+                setTimeout(function() {
+                    console.log("DataTables initComplete: Adjusting columns.");
+                    api.columns.adjust().draw(false);
+                }, 100);
+            }
+        });
+
+        // --- Helper Functions ---
+        function resetSortIcons() {
+            $('#bookRecordsTable thead th i.sort-icon')
+                .removeClass('fa-sort-up fa-sort-down')
+                .addClass('fa-sort');
+        }
+
+        function updateSortIcons() {
+            resetSortIcons();
+            let order = table.order();
+            if (order.length > 0) {
+                let columnIndex = order[0][0];
+                let direction = order[0][1];
+                let columnIcon = $(`#bookRecordsTable thead th:eq(${columnIndex}) i.sort-icon`);
+                if (direction === 'asc') {
+                    columnIcon.removeClass('fa-sort fa-sort-down').addClass('fa-sort-up');
+                } else if (direction === 'desc') {
+                    columnIcon.removeClass('fa-sort fa-sort-up').addClass('fa-sort-down');
+                }
+            }
+        }
+
+        function saveFilters() {
+            let selectedStatuses = $('.status-filter:checked').map(function() {
+                return this.value;
+            }).get();
+            localStorage.setItem('bookrecords_selectedStatuses', JSON.stringify(selectedStatuses));
+        }
+
+        function loadFilters() {
+            let savedStatuses = JSON.parse(localStorage.getItem('bookrecords_selectedStatuses'));
+            if (savedStatuses) {
+                $('.status-filter').each(function() {
+                    this.checked = savedStatuses.includes(this.value);
+                });
+            }
+        }
+
+        function loadSearchTerm() {
+            let savedSearch = localStorage.getItem('bookrecords_searchTerm');
+            if (savedSearch) {
+                $('#searchBooks').val(savedSearch);
+            }
+        }
+
+        // --- Custom Filtering Logic ---
+        $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+            if (settings.nTable.id !== 'bookRecordsTable') {
+                return true;
+            }
+            let selectedStatuses = $('.status-filter:checked').map(function() {
+                return this.value.toLowerCase();
+            }).get();
+            let rowStatus = (data[6] || "").trim().toLowerCase();
+            let statusMatch = selectedStatuses.length === 0 || selectedStatuses.includes(rowStatus);
+            let searchTerm = $('#searchBooks').val().trim().toLowerCase();
+            let bookTitle = (data[1] || "").trim().toLowerCase();
+            let author = (data[2] || "").trim().toLowerCase();
+            let borrowerName = (data[3] || "").trim().toLowerCase();
+
+            if (!searchTerm) {
+                 return statusMatch;
+            }
+            let searchMatch = bookTitle.includes(searchTerm) ||
+                              author.includes(searchTerm) ||
+                              borrowerName.includes(searchTerm);
+            return statusMatch && searchMatch;
+        });
+
+        // --- Event Handlers ---
+        let searchTimeout;
+
+        $('#bookRecordsTable thead th').on('click', function() {
+            if ($(this).find('i.sort-icon').length) {
+                setTimeout(function() {
+                    updateSortIcons();
+                    localStorage.setItem('bookrecords_sorting', JSON.stringify(table.order()));
+                }, 50);
+            }
+        });
+
+        $('.status-filter').on('change', function() {
+            saveFilters();
+            table.draw();
+        });
+
+        $('#searchBooks').on('keyup', function() {
+            clearTimeout(searchTimeout);
+            const inputElement = this;
+            searchTimeout = setTimeout(function() {
+                let searchTerm = $(inputElement).val().trim();
+                localStorage.setItem('bookrecords_searchTerm', searchTerm);
+                table.draw();
+            }, 300);
+        });
+
+        table.on('length.dt', function(e, settings, len) {
+            localStorage.setItem('bookrecords_pageLength', len);
+        });
+
+        // --- Initial Load ---
+        loadFilters();
+        loadSearchTerm();
+        updateSortIcons();
+        table.draw();
+    });
+</script>
+{% endblock %}
+{% endblock %}

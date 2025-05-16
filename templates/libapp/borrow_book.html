@@ -1,0 +1,109 @@
+{% extends 'libapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<title>Borrow Books</title>
+<div class="headingFinal">
+    <h2>Borrow Books</h2>
+    <h6> Record people who borrow books </h6>
+</div>
+
+<div class="middleCard">
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="col">
+            <div class="row mb-3">
+                <input type="text" id="accession_number" class="form-control" placeholder="Accession Number" name="accession_number" required style="width: 400px; height: 40px; margin: auto;">
+            </div>
+
+            <div class="row mb-3">
+                <input type="text" id="user_id" class="form-control" placeholder="User ID" name="user_id" required style="width: 400px; height: 40px; margin: auto;">
+            </div>
+
+            <div class="row mb-3">
+                <select id="room_use" class="form-select" name="room_use" style="width: 400px; height: 40px; margin: auto;">
+                    <option value="True">Room Use</option>
+                    <option value="False">Home Use</option>
+                </select>
+            </div>
+
+            {% if messages %}
+                <div class="row mb-3" style="width: 400px; margin-left: auto; margin-right: auto;">
+                    <ul class="messages" style="list-style: none; padding: 0; margin: 0; width: 100%;">
+                        {% for message in messages %}
+                            <li{% if message.tags %} class="message-item {{ message.tags }}"{% else %} class="message-item"{% endif %}
+                                style="padding: 10px; margin-bottom: 10px; border: 1px solid;
+                                    {% if message.level == 20 %}border-color: #2196F3; color: #2196F3; background-color: #e3f2fd; /* INFO */{% endif %}
+                                    {% if message.level == 25 %}border-color: #4CAF50; color: #4CAF50; background-color: #e8f5e9; /* SUCCESS */{% endif %}
+                                    {% if message.level == 30 %}border-color: #ff9800; color: #ff9800; background-color: #fff3e0; /* WARNING */{% endif %}
+                                    {% if message.level == 40 %}border-color: #f44336; color: #f44336; background-color: #ffebee; /* ERROR */{% endif %}
+                                    border-radius: 4px; text-align: center; position: relative; padding-right: 30px;"
+                            >
+                                {{ message }}
+                                <button type="button" class="close-message" aria-label="Close"
+                                        style="position: absolute; top: 5px; right: 5px; background: none; border: none; font-size: 1.2rem; font-weight: bold; color: inherit; cursor: pointer; padding: 0 5px; line-height: 1;">
+                                    ×
+                                </button>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+
+            <div class="row">
+                <button type="submit" class="btn btn-primary btn-block" style="border-radius: 20px; width: 400px; margin: auto;">Submit</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+{% comment %} JAVASCRIPT ADDED DIRECTLY WITHIN THE CONTENT BLOCK {% endcomment %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const messageList = document.querySelector('.messages'); // Get the parent UL element
+
+    if (messageList) {
+        messageList.addEventListener('click', function(event) {
+            // Check if the clicked element has the class 'close-message'
+            if (event.target.classList.contains('close-message')) {
+                const messageItem = event.target.closest('.message-item');
+                if (messageItem) {
+                    messageItem.style.display = 'none'; // Hide the message list item
+                }
+            }
+        });
+    }
+});
+    
+let isFormSubmitted = false;
+let isChanged = false;
+
+// Mark the page as changed if any input is modified
+document.querySelectorAll('input, textarea, select').forEach(function(el) {
+    el.addEventListener('change', function() {
+        isChanged = true;
+    });
+    el.addEventListener('input', function() {
+        isChanged = true;
+    });
+});
+
+// If form is submitted, suppress the warning
+document.querySelector('form').addEventListener('submit', function() {
+    isFormSubmitted = true;
+});
+
+// Warn when navigating away if changes are made and form not submitted
+window.addEventListener('beforeunload', function (e) {
+    if (isChanged && !isFormSubmitted) {
+        e.preventDefault();
+        e.returnValue = '';
+    }
+});
+
+</script>
+
+{% endblock %}
